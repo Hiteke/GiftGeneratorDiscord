@@ -1,6 +1,6 @@
 const request = require('request');
 const generator = require('generate-password');
-var fs = require('fs');
+const fs = require('fs');
 
 var i = 0;
 var i1 = 0;
