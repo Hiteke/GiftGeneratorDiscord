@@ -36,6 +36,6 @@ function write() {
 		console.clear();
 		console.log(c + ' of ' + i);
 for (i1 = 0; i1 < arr.length; i1) { 
-		console.log(arr[a]);
+		console.log(arr[i1]);
 		}
 }
