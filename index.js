@@ -7,11 +7,10 @@ var i1 = 0;
 var c = 0;
 var arr = [];
 
-write();
 a();
 
 function a() {
-	setTimeout(write, 5000);
+	write();
 var id = generator.generate({
     length: 16,
     numbers: true
