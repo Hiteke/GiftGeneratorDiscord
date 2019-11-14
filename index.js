@@ -18,19 +18,22 @@ var id = generator.generate({
 
 request({url: `https://discordapp.com/api/v6/entitlements/gift-codes/${id}`, json: true}, function(err, res, json) {
 	i++;
-try{ if (json.message === 'You are being rate limited.') setTimeout(a, 60000); else a(); }
-catch(err) {
-	if (json !== undefined) {
-	 c++;
+try{
+	if (json.code === id)
+	{
+		 c++;
 	 fs.appendFileSync("gifts.txt", "\nhttps://discord.gift/"+id);
-	 arr.push(json);
+	 arr.push(json.code);
 	 fs.appendFileSync("log.txt", "\n"+json);
 	 a();
 	}
 }
+catch(err) 
+{ 
+if (json.message === 'You are being rate limited.') setTimeout(a, 60000); else a(); 
+}
 })
 }
-
 function write() {
 		console.clear();
 		console.log(c + ' of ' + i);
