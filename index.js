@@ -29,7 +29,7 @@ request({url: `https://discordapp.com/api/v6/entitlements/gift-codes/${id}`, jso
 	}
 	else
 	{
-if (json.message === 'You are being rate limited.') setTimeout(a, 60000); else	a(); 
+	if (json.message === 'You are being rate limited.') { setTimeout(a, 60000); console.log('waiting...'); } else a(); 
 	}
 })
 }
