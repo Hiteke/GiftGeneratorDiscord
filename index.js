@@ -1,6 +1,6 @@
 const request = require('request');
 const generator = require('generate-password');
-const fs = require('fs');
+var fs = require('fs');
 
 var i = 0;
 var i1 = 0;
@@ -21,11 +21,13 @@ request({url: `https://discordapp.com/api/v6/entitlements/gift-codes/${id}`, jso
 	i++;
 try{ if (json.message === 'You are being rate limited.') setTimeout(a, 60000); else a(); }
 catch(err) {
+	if (json !== undefined) {
 	 c++;
 	 fs.appendFileSync("gifts.txt", "\nhttps://discord.gift/"+id);
 	 arr.push(json);
 	 fs.appendFileSync("log.txt", "\n"+json);
 	 a();
+	}
 }
 })
 }
@@ -36,5 +38,4 @@ function write() {
 for (i1 = 0; i1 < arr.length; i1) { 
 		console.log(arr[a]);
 		}
-	setTimeout(write, 5000);
 }
